@@ -18,7 +18,7 @@ cache:
 script: "./gradlew clean build"
 
 before_deploy:
-  - zip -r mingu-springpjt
+  - zip -r mingu-springpjt *
   - mkdir -p deploy
   - mv mingu-springpjt.zip deploy/mingu-springpjt.zip
 
