@@ -33,6 +33,17 @@ deploy:
     local_dir: deploy
     wait-until-deployed: true
 
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: mingu-spring-build # S3 버킷
+    key: mingu-springpjt.zip # 압축한 빌드 파일
+    bundle_type: zip # 압축 타입
+    application: mingu-spring-pjt # AWS Codedeploy 애플리케이션 이름
+    deployment_group: mingu-pjt-deploy-group # AWS Codedeploy 배포 그룹 이름
+    region: ap-northeast-2
+    wait-until-deployed: true
+
 # CI 실행 완료시 메일 알람
 notifications:
   email:
